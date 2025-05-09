@@ -40,12 +40,22 @@ def init_Oxy() -> Dict[str, str | int]:
         "objects" : [
             {
                 "type": "line",
+                "x1": 1000,
+                "y1": 0,
+                "x2": 0,
+                "y2": 1000,
+                "stroke": "black",
+                "strokeWidth": 4
+            },
+
+            {
+                "type": "line",
                 "x1": 0,
                 "y1": 0,
                 "x2": 1000,
                 "y2": 0,
                 "stroke": "black",
-                "strokeWidth": 2
+                "strokeWidth": 4
             },
 
             {
@@ -55,7 +65,7 @@ def init_Oxy() -> Dict[str, str | int]:
                 "x2": 0,
                 "y2": 660,
                 "stroke": "black",
-                "strokeWidth": 2
+                "strokeWidth": 4
             }
         ]
     }
@@ -66,18 +76,28 @@ if 'clicked_points' not in st.session_state:
 
 st.markdown(colored_text("Pham Van Hung", "black"), unsafe_allow_html=True)
 
+# canvas_result = st_canvas(
+#     stroke_width=0,
+#     background_color="#ffffff",
+#     update_streamlit=True,
+#     height=2000,
+#     width=2000,
+#     # initial_drawing= init_Oxy(),
+#     drawing_mode="freedraw",
+#     display_toolbar=False,
+#     key="canvas",
+# )
+
 canvas_result = st_canvas(
-    stroke_width=0,
-    background_color="#ffffff",
+    stroke_width=2,
+    background_color="#ffffff",  # Màu nền trắng
     update_streamlit=True,
-    height=650,
-    width=750,
-    initial_drawing= init_Oxy(),
+    height=1000,    # Chiều cao của canvas
+    width=5000,     # Chiều rộng của canvas
     drawing_mode="freedraw",
-    display_toolbar=False,
+    display_toolbar=True,  # Bật toolbar để bạn dễ vẽ
     key="canvas",
 )
-
 
 # Get the click coordinates
 points_new = []
