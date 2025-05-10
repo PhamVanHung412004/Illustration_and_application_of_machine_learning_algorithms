@@ -1,0 +1,6 @@
+numpy
+scipy
+scikit-learn
+opencv-python
+streamlit
+streamlit-drawable-canvas
