@@ -10,9 +10,8 @@ from .draw_line import Line
 from .draw_rect import Rect
 from .draw_text import Text
 
-n_clusters = 0
-error = 0
-def Backgroud(objects=[]) -> Dict[str, str | int]:
+def Backgroud(objects : list, n_clusters : int, error : float) -> Dict[str, str | int]:
+    objects = []
     base_objects = [
         Line("line",50,50,50,750,"black",4).Return_Information_Line(),
         Line("line",50,750,1050,750,"black",4).Return_Information_Line(),
@@ -55,8 +54,9 @@ def Backgroud(objects=[]) -> Dict[str, str | int]:
         Rect("rect",1080,590,270,70,"white","black",4).Return_Information_Rect(),
         Text("text",1160,610,"RESET",30,"black").Return_Information_Text(),
         
+        # Button Application
         Rect("rect",1080,680,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1140,697,"Application",30,"black").Return_Information_Text(),
+        Text("text",1140,697,"APPLICATION",30,"black").Return_Information_Text()
     ]
     return {"objects": base_objects + objects}
 
