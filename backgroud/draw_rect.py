@@ -1,4 +1,8 @@
-from .add_path import add
+import sys
+import os
+# thêm path thủ công 
+def add():
+    return sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 add()
 
 from package import Dict
@@ -30,8 +34,8 @@ class Rect:
             "width": self.width_rect,
             "height": self.height_rect,
             "fill": self.fill_rect,
-            "stroke": stroke_rect,
-            "strokeWidth": strokeWidth
+            "stroke": self.stroke_rect,
+            "strokeWidth": self.strokeWidth
         }
 
 
