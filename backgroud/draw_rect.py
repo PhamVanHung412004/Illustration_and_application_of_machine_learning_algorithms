@@ -40,4 +40,6 @@ class Rect:
 
 
 
-
+def main():
+    print("hung hung")
+main()

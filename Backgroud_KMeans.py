@@ -12,8 +12,14 @@ from backgroud import (
     Circle,
     Line,
     Rect,
-    Text
+    Text,
+    BG_KMeans,
+    BG_KNN,
+    BG_LR
 )
+
+print("aaaaaaaaadadadddđ")
+
 
 # setting fullscreen
 st.set_page_config(layout="wide")
@@ -39,75 +45,61 @@ def colored_text(text : str, color : str) -> str:
 def check_logic(x_begin : int, x : int, x_end : int, y_begin : int, y : int, y_end : int) -> bool:
     return (x_begin <= x and x <= x_end) and (y_begin <= y and y <= y_end)
 
-# Thêm biến cờ vào session_state nếu chưa có
+
+# logic KMeans
 if 'clicked_plus' not in st.session_state:
-    st.session_state.clicked_plus = False
+    st.session_state.clicked_plus : bool = False
 
 if 'clicked_minus' not in st.session_state:
-    st.session_state.clicked_minus = False
+    st.session_state.clicked_minus : bool = False
 
-if 'counter' not in st.session_state:
-    st.session_state.counter = 0
+if 'Parameter_BG_KMeans' not in st.session_state:
+    st.session_state.Parameter_BG_KMeans : int = 0
 
-error = 0
-def Backgroud(objects = []) -> Dict[str, str | int]:
-    base_objects = [
-        Line("line",50,50,50,750,"black",4).Return_Information_Line(),
-        Line("line",50,750,1050,750,"black",4).Return_Information_Line(),
-        Text("text",40,30,"▲",24,"black").Return_Information_Text(),
-        Text("text",1045,738,"►",24,"black").Return_Information_Text(),
-        Text("text",35,750,"0",24,"black").Return_Information_Text(),
-        Text("text",25,45,"Y",24,"black").Return_Information_Text(),
-        Text("text",1045,760,"X",24,"black").Return_Information_Text(),
-        Text("text",400,760,"Illustration of kmeans algorithm",24,"black").Return_Information_Text(),
+if 'Erorr_KMeans' not in st.session_state:
+    st.session_state.Erorr_KMeans : int = 0
 
-        # Button n_clusters
-        Rect("rect",1080,50,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1120,70,"n_clusters = " + str(st.session_state.counter),30,"black").Return_Information_Text(),
 
-        # Button +
-        Rect("rect",1080,140,120,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1125,150,"+",45,"black").Return_Information_Text(),
 
-        # Button -
-        Rect("rect",1230,140,120,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1280,145,"-",45,"black").Return_Information_Text(),
-        
-        # Button RANDOM
-        Rect("rect",1080,230,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1145,250,"RANDOM",30,"black").Return_Information_Text(),
+# Logic button KNN
+if 'clicked_plus_KMeans_in_KNN' not in st.session_state:
+    st.session_state.clicked_plus_KMeans_in_KNN : bool = False
 
-        # Button RUN
-        Rect("rect",1080,320,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1170,340,"RUN",30,"black").Return_Information_Text(),
-        
-        # Button ALGORITHM
-        Rect("rect",1080,410,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1125,430,"ALGORITHM",30,"black").Return_Information_Text(),
-        
-        # Button ERROR
-        Rect("rect",1080,500,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1105,520,"ERROR = " + str(error),30,"black").Return_Information_Text(),
-        
-        # Button RESET
-        Rect("rect",1080,590,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1160,610,"RESET",30,"black").Return_Information_Text(),
-        
-        # Button Application
-        Rect("rect",1080,680,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1120,697,"APPLICATION",30,"black").Return_Information_Text()
-    ]
-    return {"objects": base_objects + objects}
+if 'clicked_minus_KMeans_int_KNN' not in st.session_state:
+    st.session_state.clicked_minus_KMeans_int_KNN : bool = False
 
+if 'clicked_plus_KNN' not in st.session_state:
+    st.session_state.clicked_plus_KNN : bool = False
+
+if 'clicked_minus_KNN' not in st.session_state:
+    st.session_state.clicked_minus_KNN : bool = False
+
+if 'counts_clusters_KMeans' not in st.session_state:
+    st.session_state.counts_clusters_KMeans : int = 0
+
+if 'counts_KNN' not in st.session_state:
+    st.session_state.counts_KNN : int = 0
+
+# logic BG LR
+
+if "error_LR" not in st.session_state:
+    st.session_state.error_LR : float = 0
 
 if 'drawn_objects' not in st.session_state:
-    st.session_state.drawn_objects = []
+    st.session_state.drawn_objects : List[Dict[str , str | int]] = []
+
+def Backgroud(objects = []) -> Dict[str, str | int]:
+    
+    init_BG_KMeans = BG_KMeans(st.session_state.Erorr_KMeans, st.session_state.Parameter_BG_KMeans)
+    init_BG_KNN = BG_KNN(st.session_state.counts_clusters_KMeans, st.session_state.Parameter_BG_KMeans)
+    init_BG_LR = BG_LR(st.session_state.error_LR)
+
+    meger_objects = init_BG_KMeans + init_BG_KNN + init_BG_LR 
+    return {"objects": meger_objects + objects}
 
 col1, col2 = st.columns([1,10])
 
-
 model : str = "freedraw"
-
 
 with col2:
     canvas_result : st_canvas = st_canvas(
@@ -124,6 +116,8 @@ with col2:
 
     if canvas_result.json_data is not None:
         objects = canvas_result.json_data["objects"]
+        print("aaaaaaaaaaaaaaa")
+        print(objects)
         points_new = []         
         datas : List = []
 
@@ -145,14 +139,14 @@ with col2:
                 # logic button +
                 if (check_logic(1080, x_mouse, 1080 + 120, 140, y_mouse, 140 + 70)):
                     if not st.session_state.clicked_plus:
-                        st.session_state.counter += 1
+                        st.session_state.Parameter_BG_KMeans += 1
                         st.session_state.clicked_plus = True
                         st.rerun()
 
                 # logic button -
                 if (check_logic(1230, x_mouse, 1203 + 120, 140, y_mouse, 140 + 70)):
-                    if not st.session_state.clicked_minus and st.session_state.counter > 0:
-                        st.session_state.counter -= 1
+                    if not st.session_state.clicked_minus and st.session_state.Parameter_BG_KMeans > 0:
+                        st.session_state.Parameter_BG_KMeans -= 1
                         st.session_state.clicked_minus = True
                         st.rerun()
     

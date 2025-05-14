@@ -1,18 +1,25 @@
+from .draw_rect import Rect
+from .draw_line import Line
+from .draw_text import Text
+from .draw_circle import Circle
+
 import sys
 import os
-# thêm path thủ công 
-def add():
-    return sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-add()
-from package import Dict
-from .draw_circle import Circle
-from .draw_line import Line
-from .draw_rect import Rect
-from .draw_text import Text
+#add path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-def Backgroud(objects : list, n_clusters : int, error : float) -> Dict[str, str | int]:
-    objects = []
-    base_objects = [
+from package import (
+    Dict,
+    List
+)
+
+
+def BG_KMeans(n_clusters : int, error : float) -> List[Dict[str, str | int]]:
+    '''
+    n_clusters : Số cụm muốn phân của thuật toán KMeans
+    error : số lỗi của thuật toán khi sử dụng
+    '''
+    data_backgroud : List[Dict[str, str | int]] = [
         Line("line",50,50,50,750,"black",4).Return_Information_Line(),
         Line("line",50,750,1050,750,"black",4).Return_Information_Line(),
         Text("text",40,30,"▲",24,"black").Return_Information_Text(),
@@ -56,8 +63,8 @@ def Backgroud(objects : list, n_clusters : int, error : float) -> Dict[str, str 
         
         # Button Application
         Rect("rect",1080,680,270,70,"white","black",4).Return_Information_Rect(),
-        Text("text",1140,697,"APPLICATION",30,"black").Return_Information_Text()
+        Text("text",1120,697,"APPLICATION",30,"black").Return_Information_Text()
     ]
-    return {"objects": base_objects + objects}
+    return data_backgroud    
 
-    
+

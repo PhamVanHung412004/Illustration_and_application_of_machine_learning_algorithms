@@ -33,3 +33,7 @@ class Line:
                 "stroke": self.stroke_line,
                 "strokeWidth": self.strokeWidth
             }
+    
+def main():
+    print("aaaaaaaaa")
+main()
