@@ -3,10 +3,9 @@ from .draw_line import Line
 from .draw_text import Text
 from .draw_circle import Circle
 
-import sys
-import os
-#add path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from .add_path import add
+add()
+
 
 from package import (
     Dict,

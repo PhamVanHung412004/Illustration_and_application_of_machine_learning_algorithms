@@ -1,5 +1,5 @@
-# from .add_path import add
-# add()
+from .add_path import add
+add()
 
 from typing import Dict
 
@@ -40,7 +40,3 @@ class Text:
             }
 
 
-def main():
-    print("ahunaa")
-
-main()

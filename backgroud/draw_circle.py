@@ -1,8 +1,4 @@
-import sys
-import os
-# thêm path thủ công 
-def add():
-    return sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from .add_path import add
 add()
 
 from package import Dict
@@ -14,7 +10,6 @@ class Circle:
                 radius_circle : int, 
                 fill_circle : str,
                 strokeWidth : int) -> None:
-        print("aaaaaaaaaaaaaaaa")
         '''
         type_circle : tên của hình muốn vẽ
         left_circle_x : góc trên bên trái của trục hoành
