@@ -1,7 +1,6 @@
 from .add_path import add
 add()
-
-from typing import Dict
+from package import Dict
 
 
 class Text:

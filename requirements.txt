@@ -4,3 +4,4 @@ scikit-learn
 opencv-python
 streamlit
 streamlit-drawable-canvas
+streamlit_js_eval

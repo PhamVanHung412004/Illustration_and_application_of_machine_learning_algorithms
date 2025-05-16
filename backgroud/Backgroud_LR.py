@@ -30,10 +30,10 @@ def BG_LR(error : float, space : int) -> List[Dict[str, str | int]]:
 
     const_value += space
 
-    value = -100
+    value : int = -100
 
+    value1 : int = 300
 
-    value1 = 300
     base_objects = [
         Line("line", 50, 50 + const_value, 50, 50 + const_value +  750, "black", 4).Return_Information_Line(),
         Line("line", 50, 750 + const_value + 50, 1050, 800 + const_value, "black", 4).Return_Information_Line(),

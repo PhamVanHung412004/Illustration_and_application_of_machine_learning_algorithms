@@ -35,10 +35,3 @@ class Circle:
             "fill": self.fill_circle,
             "strokeWidth": self.strokeWidth
         }
-
-
-def main():
-    print(Circle("circle",3,4,9,"black",4).Return_Information_Circle())
-
-main()
-

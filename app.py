@@ -129,7 +129,7 @@ with col2:
         objects = canvas_result.json_data["objects"]
 
         # danh sách chứa tọa độ của 2 đường tròn lồng nhau
-        points_new : List[List[Dict[str , str]]] = []         
+        points_new : List[List[Dict[str , str]]] = []    
 
         for obj in objects:
             if obj["type"] == "path":
@@ -139,11 +139,11 @@ with col2:
 
                 if (x_mouse >= 0 and y_mouse >= 0 and check_logic(50,x_mouse, 1050, 50, y_mouse, 750)):
                     if not st.session_state.click:                        
-                        new_circle_one = Circle("circle", x_mouse - 10, y_mouse - 10, 10, "black", 3).Return_Information_Circle()
-                        new_circle_two = Circle("circle", x_mouse - 8, y_mouse - 8, 8, "white", 3).Return_Information_Circle()
+                        new_circle_one : Dict[str, str | int] = Circle("circle", x_mouse - 10, y_mouse - 10, 10, "black", 3).Return_Information_Circle()
+                        new_circle_two : Dict[str, str | int] = Circle("circle", x_mouse - 8, y_mouse - 8, 8, "white", 3).Return_Information_Circle()
                         st.session_state.datas_KMeans[x_mouse - 50] = abs(y_mouse - 750)
                         points_new.extend([new_circle_one, new_circle_two])
-                        st.session_state.click = True
+                        st.session_state.click : bool = True
 
                 # logic button +
                 if (check_logic(1080, x_mouse, 1080 + 120, 140, y_mouse, 140 + 70)):
@@ -158,6 +158,7 @@ with col2:
                         st.session_state.Parameter_BG_KMeans -= 1
                         st.session_state.clicked_minus : bool = True
                         st.rerun()
+                        
                 if (check_logic(1080,x_mouse, 1080 + 270,230,y_mouse,230 + 70)):
                     if not st.session_state.click_button_random:
                         print("button random")

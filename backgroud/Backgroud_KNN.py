@@ -13,6 +13,7 @@ from package import (
 
 
 
+     
 def BG_KNN(n_clusters : int, K_KNN : int, space : int) -> List[Dict[str, str | int]]:
     '''
     n_clusters : số lượng cụm muốn phân của thuật toán KMeans
@@ -21,8 +22,8 @@ def BG_KNN(n_clusters : int, K_KNN : int, space : int) -> List[Dict[str, str | i
     '''
     const_value : int = 850
     const_value += space
-
     value : int = 40
+
     base_objects = [
         Line("line", 50, 50 + const_value, 50, 50 + const_value + 750 , "black", 4).Return_Information_Line(),
         Line("line", 50, 750 + const_value + 50, 1050, 800 + const_value, "black", 4).Return_Information_Line(),
