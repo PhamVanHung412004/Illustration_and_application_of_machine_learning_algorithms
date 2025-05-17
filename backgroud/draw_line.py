@@ -10,6 +10,15 @@ class Line:
                 point_y_end : int,
                 stroke_line : str,
                 strokeWidth : int) -> None:
+        ''' 
+        point_x_begin : tọa độ x điểm đầu
+        point_y_begin : tạo độ y điểm đầu
+        point_x_end : tọa độ x điểm cuối
+        point_y_end : tọa độ x điểm cuối
+        stroke_line : màu của đoạn thẳng
+        strokeWidth : độ dày của đoạn thẳng
+
+        '''
 
         self.type_line : str = type_line 
         self.point_x_begin : int = point_x_begin

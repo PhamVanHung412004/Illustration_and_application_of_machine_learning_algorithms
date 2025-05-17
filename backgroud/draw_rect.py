@@ -12,6 +12,15 @@ class Rect:
                 fill_rect : str,
                 stroke_rect : str,
                 strokeWidth : int) -> None:
+        '''
+        x_rect : tọa độ x điểm xuất phát của hình chữ nhật
+        y_rect : tọa độ x điểm xuất phát của hình chữ nhật
+        width_rect : chiều rộng của hình chữ nhật
+        height_rect : chiều dài của hình chữ nhật
+        fill_rect : màu nền của hĩnh chữ nhật
+        stroke_rect : màu viền của hình chữ nhật
+        strokeWidth : độ dày nét khi vẽ hình
+        '''
 
         self.type_rect : str = type_rect
         self.x_rect : int = x_rect
