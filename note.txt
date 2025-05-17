@@ -1,0 +1,19 @@
+solution 1: using datababse
+-> multi usert from web -> failed
+-> init database init global project save points 
+eg : 
+
++) user 1 -> from web -> points new -> save databasee -> out -> point in database remove
+-> meger points -> user out -> remove 
+-> learning database
+-> alogthm -> map -> deeplearning database -> save database -> what is call datababse?
+
+-> map < 
+ID1 : database1,
+ID2 : database2,
+ID3 : database3
+>
+
++) user 2 -> from web -> points new -> save databasee -> out -> point in database remove
+
+-> version demo
