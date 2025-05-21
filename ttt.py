@@ -159,6 +159,118 @@ const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 const sessionId = "{st.session_state.session_id}";
 
+//Background Kmeans
+ctx.strokeStyle = "black";
+ctx.lineWidth = 2;
+
+ctx.beginPath();
+ctx.moveTo(50, 300);  // Điểm bắt đầu
+ctx.lineTo(50, 1000);  // Điểm kết thúc
+ctx.stroke();          // Vẽ đường
+
+ctx.moveTo(750, 1000);  // Điểm bắt đầu
+ctx.lineTo(50, 1000);  // Điểm kết thúc
+ctx.stroke();          // Vẽ đường
+
+ctx.font = "24px Arial";
+ctx.fillStyle = "black";
+
+// Vẽ chữ lên canvas
+ctx.fillText("▲", 39, 300);
+ctx.fillText("►", 747, 1008);
+ctx.fillText("n_cluster = 0", 810, 340);
+ctx.fillText("+", 820 ,440 );
+ctx.fillText("-", 900,440 );
+ctx.fillText("RANDOM", 820,540 );
+ctx.fillText("RUN", 840, 640 );
+ctx.fillText("ALGORITHM", 805, 740);
+ctx.fillText("Error =0", 820, 840);
+ctx.fillText("RESET", 830, 940);
+
+ctx.strokeStyle = "black";  // Màu viền
+ctx.lineWidth = 3;          // Độ dày viền
+
+// Vẽ hình chữ nhật
+ctx.strokeRect(800, 300, 150, 70);  // (x, y, width, height)
+ctx.strokeRect(800, 400, 70, 70);  // (x, y, width, height)
+ctx.strokeRect(880, 400, 70, 70);  // (x, y, width, height)
+ctx.strokeRect(800, 500, 150, 70);  // (x, y, width, height)
+ctx.strokeRect(800, 600, 150, 70);  // (x, y, width, height)
+ctx.strokeRect(800, 700, 150, 70);  // (x, y, width, height)
+ctx.strokeRect(800, 800, 150, 70);  // (x, y, width, height)
+ctx.strokeRect(800, 900, 150, 70);  // (x, y, width, height)
+
+
+
+// background KNN
+ctx.strokeStyle = "black";
+ctx.lineWidth = 2;
+
+ctx.beginPath();
+ctx.moveTo(50, 1300);  // Điểm bắt đầu
+ctx.lineTo(50, 2000);  // Điểm kết thúc
+ctx.stroke();          // Vẽ đường
+
+ctx.moveTo(750, 2000);  // Điểm bắt đầu
+ctx.lineTo(50, 2000);  // Điểm kết thúc
+ctx.stroke();          // Vẽ đường
+
+ctx.font = "24px Arial";
+ctx.fillStyle = "black";
+
+// Vẽ chữ lên canvas
+ctx.fillText("▲", 39, 1300);
+ctx.fillText("►", 747, 2008);
+
+ctx.strokeStyle = "black";  // Màu viền
+ctx.lineWidth = 3;          // Độ dày viền
+
+// Vẽ hình chữ nhật
+ctx.strokeRect(800, 1300, 150, 55);  // (x, y, width, height)
+ctx.strokeRect(800, 1377, 70, 55);  // (x, y, width, height)
+ctx.strokeRect(880, 1377, 70, 55);  // (x, y, width, height)
+ctx.strokeRect(800, 1454, 150, 55);  // (x, y, width, height)
+ctx.strokeRect(800, 1531, 150, 55);  // (x, y, width, height)
+ctx.strokeRect(880, 1608, 70, 55);  // (x, y, width, height)
+ctx.strokeRect(800, 1608, 70, 55);  // (x, y, width, height)
+ctx.strokeRect(800, 1685, 150, 55);  // (x, y, width, height)
+ctx.strokeRect(800, 1762, 150, 55);  // (x, y, width, height)
+ctx.strokeRect(800, 1839, 150, 55);  // (x, y, width, height)
+ctx.strokeRect(800, 1916, 150, 55);  // (x, y, width, height)
+
+
+ctx.strokeStyle = "black";
+ctx.lineWidth = 2;
+
+ctx.beginPath();
+ctx.moveTo(50, 2300);  // Điểm bắt đầu
+ctx.lineTo(50, 3000);  // Điểm kết thúc
+ctx.stroke();          // Vẽ đường
+
+ctx.moveTo(750, 3000);  // Điểm bắt đầu
+ctx.lineTo(50, 3000);  // Điểm kết thúc
+ctx.stroke();          // Vẽ đường
+
+ctx.font = "24px Arial";
+ctx.fillStyle = "black";
+
+// Vẽ chữ lên canvas
+ctx.fillText("▲", 39, 2300);
+ctx.fillText("►", 747, 3008);
+
+ctx.strokeStyle = "black";  // Màu viền
+ctx.lineWidth = 3;          // Độ dày viền
+
+// Vẽ hình chữ nhật
+ctx.strokeRect(800, 2300, 150, 90);  // (x, y, width, height)
+ctx.strokeRect(800, 2416, 150, 90);  // (x, y, width, height)
+ctx.strokeRect(800, 2532, 150, 90);  // (x, y, width, height)
+ctx.strokeRect(800, 2648, 150, 90);  // (x, y, width, height)
+ctx.strokeRect(800, 2764, 150, 90);  // (x, y, width, height)
+ctx.strokeRect(800, 2880, 150, 90);  // (x, y, width, height)
+
+
+
 // Hàm gửi yêu cầu xóa dữ liệu của session này
 function clearSessionData() {{
     fetch("http://localhost:8000/clear/" + sessionId, {{
