@@ -158,7 +158,10 @@ components.html(f"""
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 const sessionId = "{st.session_state.session_id}";
-
+ctx.font = "40px Arial";
+ctx.fillText("Kmeans", 100,200 );
+ctx.fillText("KNN", 100,1200 );
+ctx.fillText("Liner_Regression", 100,2200 );
 //Background Kmeans
 ctx.strokeStyle = "black";
 ctx.lineWidth = 2;
@@ -179,10 +182,10 @@ ctx.fillStyle = "black";
 ctx.fillText("▲", 39, 300);
 ctx.fillText("►", 747, 1008);
 ctx.fillText("n_cluster = 0", 810, 340);
-ctx.fillText("+", 820 ,440 );
-ctx.fillText("-", 900,440 );
+ctx.fillText("+", 830 ,440 );
+ctx.fillText("-", 910,440 );
 ctx.fillText("RANDOM", 820,540 );
-ctx.fillText("RUN", 840, 640 );
+ctx.fillText("RUN", 850, 640 );
 ctx.fillText("ALGORITHM", 805, 740);
 ctx.fillText("Error =0", 820, 840);
 ctx.fillText("RESET", 830, 940);
@@ -227,16 +230,29 @@ ctx.lineWidth = 3;          // Độ dày viền
 
 // Vẽ hình chữ nhật
 ctx.strokeRect(800, 1300, 150, 55);  // (x, y, width, height)
+ctx.fillText("n_cluster = 0", 810, 1340);
 ctx.strokeRect(800, 1377, 70, 55);  // (x, y, width, height)
 ctx.strokeRect(880, 1377, 70, 55);  // (x, y, width, height)
+ctx.fillText("+", 828 ,1415 );
+ctx.fillText("-", 910,1415 );
 ctx.strokeRect(800, 1454, 150, 55);  // (x, y, width, height)
+ctx.font = "20px Arial";
+ctx.fillText("RUN KMEANS", 805,1492 );
 ctx.strokeRect(800, 1531, 150, 55);  // (x, y, width, height)
+ctx.fillText("K KNN = 0", 820,1569 );
 ctx.strokeRect(880, 1608, 70, 55);  // (x, y, width, height)
 ctx.strokeRect(800, 1608, 70, 55);  // (x, y, width, height)
+ctx.fillText("+", 828 ,1646 );
+ctx.fillText("-", 910,1646 );
 ctx.strokeRect(800, 1685, 150, 55);  // (x, y, width, height)
+ctx.fillText("RUN KNN", 820, 1723 );
 ctx.strokeRect(800, 1762, 150, 55);  // (x, y, width, height)
+ctx.font = "20px Arial";
+ctx.fillText("DELETE LABEL", 803,1800 );
 ctx.strokeRect(800, 1839, 150, 55);  // (x, y, width, height)
+ctx.fillText("RESET", 830,1875 );
 ctx.strokeRect(800, 1916, 150, 55);  // (x, y, width, height)
+ctx.fillText("ALGORITHM", 820,1952 );
 
 
 ctx.strokeStyle = "black";
@@ -263,11 +279,23 @@ ctx.lineWidth = 3;          // Độ dày viền
 
 // Vẽ hình chữ nhật
 ctx.strokeRect(800, 2300, 150, 90);  // (x, y, width, height)
+ctx.font = "22px Arial";
+ctx.fillText("Predict Recipe", 802,2350 );
 ctx.strokeRect(800, 2416, 150, 90);  // (x, y, width, height)
+ctx.font = "20px Arial";
+ctx.fillText("Delete the line1", 802,2466 );
 ctx.strokeRect(800, 2532, 150, 90);  // (x, y, width, height)
+ctx.font = "20px Arial";
+ctx.fillText("Tọa độ???", 810,2582 );
 ctx.strokeRect(800, 2648, 150, 90);  // (x, y, width, height)
+ctx.font = "20px Arial";
+ctx.fillText("Predict library", 810,2698 );
 ctx.strokeRect(800, 2764, 150, 90);  // (x, y, width, height)
+ctx.font = "20px Arial";
+ctx.fillText("Delete the line2", 802,2814 );
 ctx.strokeRect(800, 2880, 150, 90);  // (x, y, width, height)
+ctx.font = "24px Arial";
+ctx.fillText("RESET", 830,2935 );
 
 
 
